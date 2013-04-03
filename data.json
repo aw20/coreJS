@@ -1,0 +1,1004 @@
+{
+    "project": {
+        "name": "AW2.0 JS Library",
+        "description": "A core JavaScript library to ensure best practices are being used by all developers",
+        "version": "1.0",
+        "url": "https://github.com/matthewroach/fluabs",
+        "logo": "http://www.aw20.co.uk/a/img/logo.png"
+    },
+    "files": {
+        "src\\plugins\\aw2-log-server.js": {
+            "name": "src\\plugins\\aw2-log-server.js",
+            "modules": {
+                "aw2.log.server": 1
+            },
+            "classes": {
+                "ServerLog": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\plugins\\aw2-log.js": {
+            "name": "src\\plugins\\aw2-log.js",
+            "modules": {
+                "aw2.log": 1
+            },
+            "classes": {
+                "Log": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\aw2-ajax-jquery.js": {
+            "name": "src\\aw2-ajax-jquery.js",
+            "modules": {
+                "aw2": 1
+            },
+            "classes": {
+                "AW2.Ajax": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\aw2-event-jquery.js": {
+            "name": "src\\aw2-event-jquery.js",
+            "modules": {},
+            "classes": {
+                "AW2.Event": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\aw2.js": {
+            "name": "src\\aw2.js",
+            "modules": {},
+            "classes": {
+                "AW2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "aw2.log.server": {
+            "name": "aw2.log.server",
+            "submodules": {},
+            "classes": {
+                "ServerLog": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\plugins\\aw2-log-server.js",
+            "line": 19,
+            "description": "aw2 library\n server log plugin"
+        },
+        "aw2.log": {
+            "name": "aw2.log",
+            "submodules": {},
+            "classes": {
+                "Log": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 14,
+            "description": "aw2 library\n log plugin"
+        },
+        "aw2": {
+            "name": "aw2",
+            "submodules": {},
+            "classes": {
+                "AW2.Ajax": 1,
+                "AW2.Event": 1,
+                "AW2": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\aw2.js",
+            "line": 1,
+            "description": "aw2 library\n ajax (jquery implementation)"
+        }
+    },
+    "classes": {
+        "ServerLog": {
+            "name": "ServerLog",
+            "shortname": "ServerLog",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "aw2.log.server",
+            "namespace": "",
+            "file": "src\\plugins\\aw2-log-server.js",
+            "line": 19,
+            "description": "object providing Logging to a remote resource",
+            "is_constructor": 1
+        },
+        "Log": {
+            "name": "Log",
+            "shortname": "Log",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "aw2.log",
+            "namespace": "",
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 14,
+            "description": "object providing Log storage and methods",
+            "is_constructor": 1
+        },
+        "AW2.Ajax": {
+            "name": "AW2.Ajax",
+            "shortname": "AW2.Ajax",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "aw2",
+            "namespace": "",
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 1,
+            "description": "aw2 library\n ajax (jquery implementation)"
+        },
+        "AW2.Event": {
+            "name": "AW2.Event",
+            "shortname": "AW2.Event",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "aw2",
+            "namespace": "",
+            "file": "src\\aw2-event-jquery.js",
+            "line": 1,
+            "description": "aw2 library\n event (jquery implementation)"
+        },
+        "AW2": {
+            "name": "AW2",
+            "shortname": "AW2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "aw2",
+            "namespace": "",
+            "file": "src\\aw2.js",
+            "line": 1,
+            "description": "aw2 library\n core"
+        }
+    },
+    "classitems": [
+        {
+            "file": "src\\plugins\\aw2-log-server.js",
+            "line": 29,
+            "description": "sets the host url to your logging end point",
+            "itemtype": "method",
+            "name": "setHost",
+            "params": [
+                {
+                    "name": "_host",
+                    "description": "set a logging server url",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "ServerLog",
+            "module": "aw2.log.server"
+        },
+        {
+            "file": "src\\plugins\\aw2-log-server.js",
+            "line": 40,
+            "description": "the basic server log function which will perform logging of inputs",
+            "itemtype": "method",
+            "name": "server",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "data to be logged",
+                    "type": "Object",
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "example": [
+                "\n\t\t$aw2.log.server({ key : 'Value'});"
+            ],
+            "class": "ServerLog",
+            "module": "aw2.log.server"
+        },
+        {
+            "file": "src\\plugins\\aw2-log-server.js",
+            "line": 69,
+            "description": "Container for ServerLog plugin functions to be made available.",
+            "itemtype": "property",
+            "name": "$aw2.log.server",
+            "type": "{Object}",
+            "class": "ServerLog",
+            "module": "aw2.log.server"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 40,
+            "description": "enables one or more specified logging types.",
+            "itemtype": "method",
+            "name": "enable",
+            "params": [
+                {
+                    "name": "logType",
+                    "description": "logging type(s)",
+                    "type": "String",
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 61,
+            "description": "disables one or more specified logging types.",
+            "itemtype": "method",
+            "name": "disable",
+            "params": [
+                {
+                    "name": "logType",
+                    "description": "logging type(s)",
+                    "type": "String",
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 84,
+            "description": "returns the types of logging currently being used.",
+            "itemtype": "method",
+            "name": "isLogging",
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 94,
+            "description": "clears the internal log storage.",
+            "itemtype": "method",
+            "name": "clear",
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 104,
+            "description": "returns the internal logging array.",
+            "itemtype": "method",
+            "name": "get",
+            "return": {
+                "description": "the internal logs currently being stored",
+                "type": "Array"
+            },
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 114,
+            "description": "the basic log function which will perform logging of inputs",
+            "itemtype": "method",
+            "name": "log",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "data to be logged",
+                    "type": "Any",
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\plugins\\aw2-log.js",
+            "line": 130,
+            "description": "Container for Log plugin functions to be made available.",
+            "itemtype": "property",
+            "name": "$aw2.log",
+            "type": "{Object}",
+            "class": "Log",
+            "module": "aw2.log"
+        },
+        {
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 11,
+            "description": "the core AJAX call to an endpoint offering all options",
+            "itemtype": "method",
+            "name": "ajax",
+            "return": {
+                "description": "ajax request object",
+                "type": "Object"
+            },
+            "class": "AW2.Ajax",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 21,
+            "description": "external handler for asynchronous AJAX calls allowing callbacks to be specified at some point after the initial call",
+            "itemtype": "method",
+            "name": "when",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "one or more ajax request objects",
+                    "type": "Object",
+                    "optional": true,
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "returns an object with methods to specify various callbacks for what to do when the passed ajax objects return",
+                "type": "Object"
+            },
+            "example": [
+                "\nSample using when and done\n\n\t\tvar ajaxRequest = $aw2.callJSON(\"myRequest.cfm\");\n\t\t$aw2.when(ajaxRequest).done(function(response) {\n\t\t\talert(\"Do something with \" + response);\n\t\t});",
+                "\nSample using when, done and fail. `.fail()` is a callback to execute on failed ajax\n\n\t\tvar ajaxRequest = $aw2.callJSON(\"myRequest.cfm\");\n\t\t$aw2.when(ajaxRequest).done(function(response) {\n\t\t\talert(\"Do something with \" + response);\n\t\t}).fail(function() {\n\t\t\talert('Failed');\n\t});"
+            ],
+            "class": "AW2.Ajax",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 58,
+            "description": "make an AJAX call to an endpoint returning a specified type",
+            "itemtype": "method",
+            "name": "call",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "the URL of the endpoint",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "an object of arguments for the ajax call",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "cb",
+                    "description": "callback function executed on success",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "error",
+                    "description": "callback function executed on error",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "type",
+                    "description": "type of response",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "ajax request object",
+                "type": "Object"
+            },
+            "example": [
+                "\nSample with callback\n\n\t\t$aw2.call(\"myRequest.cfm\", {a: 1}, function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t}, \"json\");",
+                "\nSample with success and error callback\n\n\t\t$aw2.call(\"myRequest.cfm\", {a: 1}, function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t}, function() {\n\t\t\talert('Error');\n\t\t}, \"json\");"
+            ],
+            "class": "AW2.Ajax",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 99,
+            "description": "make an AJAX call to an endpoint returning JSON",
+            "itemtype": "method",
+            "name": "callJSON",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "the URL of the endpoint",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "an object of arguments for the ajax call",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "cb",
+                    "description": "callback function executed on success",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "error",
+                    "description": "callback function executed on error",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "ajax request object",
+                "type": "Object"
+            },
+            "example": [
+                "\nSample with success callback\n\n\t\t$aw2.callJSON(\"http://openbd.org/manual/api/?/function/fileread/\", '', function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t});",
+                "\nSample with success and error callback\n\n\t\t$aw2.callJSON(\"http://openbd.org/manual/api/?/function/fileread/\", '', function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t}, function() {\n\t\t\talert('Error');\n\t\t});"
+            ],
+            "class": "AW2.Ajax",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 129,
+            "description": "make an AJAX call to an endpoint returning JSONP",
+            "itemtype": "method",
+            "name": "callJSONP",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "the URL of the endpoint",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "an object of arguments for the ajax call",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "cb",
+                    "description": "callback function executed on success",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "error",
+                    "description": "callback function executed on error",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "ajax request object",
+                "type": "Object"
+            },
+            "example": [
+                "\nSample with callback\n\n\t\t$aw2.callJSONP(\"myRequest.cfm\", {a: 1}, function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t});",
+                "\nSample with success and error callback\n\n\t\t$aw2.callJSONP(\"myRequest.cfm\", {a: 1}, function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t}, function() {\n\t\t\talert('Error');\n\t\t});"
+            ],
+            "class": "AW2.Ajax",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-ajax-jquery.js",
+            "line": 159,
+            "description": "make an AJAX call to an endpoint returning HTML",
+            "itemtype": "method",
+            "name": "callHTML",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "the URL of the endpoint",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "an object of arguments for the ajax call",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "cb",
+                    "description": "callback function executed on success",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "error",
+                    "description": "callback function executed on error",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "ajax request object",
+                "type": "Object"
+            },
+            "example": [
+                "\nSample with callback\n\n\t\t$aw2.callHTML(\"myRequest.cfm\", {a: 1}, function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t});",
+                "\nSample with success and error callback\n\n\t\t$aw2.callHTML(\"myRequest.cfm\", {a: 1}, function(data) {\n\t\t\talert(\"do something with \" + data);\n\t\t}, function() {\n\t\t\talert('Error');\n\t\t});"
+            ],
+            "class": "AW2.Ajax",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-event-jquery.js",
+            "line": 11,
+            "description": "Bind events to an element",
+            "itemtype": "method",
+            "name": "bind",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "event type",
+                    "type": "String"
+                },
+                {
+                    "name": "selector",
+                    "description": "the selector you wish your event to be bound to",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "the function to happen once the event has been triggered",
+                    "type": "Function"
+                },
+                {
+                    "name": "bind",
+                    "description": "the selector of the element to bind to instead of binding event to the document",
+                    "type": "String||Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "example": [
+                "\nSimple click event, defaults to the document\n\n\t\t$aw2.bind(\"click\", \"h3\", function() {\n\t\t\tconsole.log('Document Live');\n\t\t});",
+                "\nClick event that is static\n\n\t\t$aw2.bind(\"click\", \"h3\", function() {\n\t\t\tconsole.log('Document Live');\n\t\t}, false);",
+                "\nAttached click event to all `<p>` inside of the .live element\n\n\t\t$aw2.bind(\"click\", \"p\", function() {\n\t\t\tconsole.log('Document Live');\n\t\t}, '.live');"
+            ],
+            "class": "AW2.Event",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2-event-jquery.js",
+            "line": 62,
+            "description": "unbind events from an element",
+            "itemtype": "method",
+            "name": "unbind",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "event type",
+                    "type": "String"
+                },
+                {
+                    "name": "selector",
+                    "description": "the selector you wish your event to be bound to",
+                    "type": "String"
+                },
+                {
+                    "name": "bind",
+                    "description": "the selector of the element to bind to instead of binding event to the document",
+                    "type": "String||Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "example": [
+                "\nSimple click event, defaults to the document\n\n\t\t$aw2.unbind(\"click\", \"h3\");",
+                "\nClick event that is static\n\n\t\t$aw2.unbind(\"click\", \"h3\", false);",
+                "\nAttached click event to all <p> inside of the .live element\n\n\t\t$aw2.unbind(\"click\", \"p\", '.live');"
+            ],
+            "class": "AW2.Event",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 10,
+            "description": "current library version",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "version",
+            "type": "{String}",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 19,
+            "description": "internal document tracker",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "document",
+            "type": "{Object}",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 28,
+            "description": "internal location tracker",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "location",
+            "type": "{Object}",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 37,
+            "description": "clone any previous aw2 variable in case of overwrite",
+            "itemtype": "property",
+            "name": "_aw2",
+            "type": "{Any}",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 45,
+            "description": "initialize internal library",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "aw2",
+            "type": "{Object}",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 56,
+            "description": "initialize the library provisions when called as a function",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "fn",
+            "type": "{Object}",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 107,
+            "description": "check if a given DOM element has a checked or selected status",
+            "itemtype": "method",
+            "name": "isChecked",
+            "params": [
+                {
+                    "name": "domObj",
+                    "description": "a DOM element",
+                    "type": "DOMElement"
+                }
+            ],
+            "return": {
+                "description": "returns true if provided element is checked",
+                "type": "Boolean"
+            },
+            "example": [
+                "\n\t<input type=\"radio\" class=\"checkMe\" />\n\n\t$aw2('.checkMe').isChecked();"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 136,
+            "description": "enable extension of the library from additional sources",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "arg",
+                    "description": "multiple objects to extend core library functionality",
+                    "type": "Object",
+                    "multiple": true
+                }
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 170,
+            "description": "initialize the library provisions when called as an object",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 174,
+            "description": "check the type of a given object",
+            "itemtype": "method",
+            "name": "type",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "an object from which to determine the type",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "the type of the object passed in",
+                "type": "String"
+            },
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 193,
+            "description": "check if array",
+            "itemtype": "method",
+            "name": "isArray",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "the array to check",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "true or false",
+                "type": "Boolean"
+            },
+            "example": [
+                "\n\t$aw2.isArray([1,2,3]);\n\n\n\t$aw2.isArray('string');\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 211,
+            "description": "test if an element exists in an array starting at the specific index",
+            "itemtype": "method",
+            "name": "arrayContains",
+            "params": [
+                {
+                    "name": "arr",
+                    "description": "the array to check",
+                    "type": "Array"
+                },
+                {
+                    "name": "el",
+                    "description": "the element to look for",
+                    "type": "Any"
+                },
+                {
+                    "name": "start",
+                    "description": "the starting index",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "return": {
+                "description": "the index of the found element or -1 if not found",
+                "type": "Number"
+            },
+            "example": [
+                "\n\t$aw2.arrayContains([1,2,3,4,5,6], 1, 0)\n\n\tvar x = ['Andy','Alan','Matthew','Simon'];\n\t$aw2.arrayContains(x, 'Matthew');\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 233,
+            "description": "convert an array to a string list using a given separation character",
+            "itemtype": "method",
+            "name": "arrayToList",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "the array to convert to a list",
+                    "type": "Array"
+                },
+                {
+                    "name": "separator=\",\"",
+                    "description": "the character to use for separating the list",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "example": [
+                "\n\t$aw2.arrayToList(['Matthew','Jim','Sandy']);\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 253,
+            "description": "convert a string list to an array using a given separation character",
+            "itemtype": "method",
+            "name": "listToArray",
+            "params": [
+                {
+                    "name": "list",
+                    "description": "a string list to convert",
+                    "type": "String"
+                },
+                {
+                    "name": "separator=\",\"",
+                    "description": "the character to use for separating the list",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "example": [
+                "\n\t$aw2.listToArray('Matthew,Jim,Sandy');\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 273,
+            "description": "Return the first item in an array",
+            "itemtype": "method",
+            "name": "arrayFirst",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "the array you wish to return the first item from",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "the first item of the array",
+                "type": "Any"
+            },
+            "example": [
+                "\n\t$aw2.arrayFirst(['Matthew','Jim','Sandy']);\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 289,
+            "description": "Return the last item in an array",
+            "itemtype": "method",
+            "name": "arrayLast",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "the array you wish to return the first item from",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "the last item of the array",
+                "type": "Any"
+            },
+            "example": [
+                "\n\t$aw2.arrayLast(['Matthew','Jim','Sandy']);\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 308,
+            "description": "test if an element exists in a structure",
+            "itemtype": "method",
+            "name": "structKeyExists",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "the structure object to check",
+                    "type": "Object"
+                },
+                {
+                    "name": "key",
+                    "description": "the key to find",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "true if the object contains the key",
+                "type": "Boolean"
+            },
+            "example": [
+                "\n\n\tvar s = { name : \"Matthew\" }\n\n\t$aw2.structKeyExists(s, 'name') // Returns true\n\n\t$aw2.structKeyExists(s, 'jobTitle') // Returns false\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 329,
+            "description": "remove a key from a structure",
+            "itemtype": "method",
+            "name": "structDelete",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "the structure object",
+                    "type": "Object"
+                },
+                {
+                    "name": "key",
+                    "description": "the key to be removed",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "example": [
+                "\n\n\tvar s = { name : \"Matthew\", jobTitle : \"Developer\" }\n\n\t$aw2.structDelete(s, 'jobTitle')\n"
+            ],
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 349,
+            "description": "expose library to window",
+            "itemtype": "property",
+            "name": "window.$aw2",
+            "type": "{Object}",
+            "class": "AW2",
+            "module": "aw2"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\ninitialize the library provisions when called as an object",
+            "line": " src\\aw2.js:170"
+        }
+    ]
+}

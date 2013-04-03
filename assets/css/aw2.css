@@ -1,0 +1,21 @@
+button {
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: bold;
+	padding: 0.4em 1em;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0px 1px 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: inset 0px 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+button {
+	background-color: rgb(8, 98, 188);
+	border-color: rgb(5, 79, 154);
+	color: rgb(249, 249, 249);
+}

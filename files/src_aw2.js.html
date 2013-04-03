@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\aw2.js - AW2.0 JS Library</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="..&#x2F;assets/css/aw2.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="http:&#x2F;&#x2F;www.aw20.co.uk&#x2F;a&#x2F;img&#x2F;logo.png" title="AW2.0 JS Library"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/AW2.html">AW2</a></li>
+            
+                <li><a href="..&#x2F;classes/AW2.Ajax.html">AW2.Ajax</a></li>
+            
+                <li><a href="..&#x2F;classes/AW2.Event.html">AW2.Event</a></li>
+            
+                <li><a href="..&#x2F;classes/Log.html">Log</a></li>
+            
+                <li><a href="..&#x2F;classes/ServerLog.html">ServerLog</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/aw2.html">aw2</a></li>
+            
+                <li><a href="..&#x2F;modules/aw2.log.html">aw2.log</a></li>
+            
+                <li><a href="..&#x2F;modules/aw2.log.server.html">aw2.log.server</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\aw2.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;**
+*
+* aw2 library
+* core
+*
+* @module aw2
+* @class AW2
+**&#x2F;
+(function(window, undefined) {
+	&#x2F;**
+	* current library version
+	*
+	* @private
+	* @property version
+	* @type {String}
+	**&#x2F;
+	var version = &quot;1.0&quot;;
+
+	&#x2F;**
+	* internal document tracker
+	*
+	* @private
+	* @property document
+	* @type {Object}
+	**&#x2F;
+	var document = window.document;
+
+	&#x2F;**
+	* internal location tracker
+	*
+	* @private
+	* @property location
+	* @type {Object}
+	**&#x2F;
+	var location = window.location;
+
+	&#x2F;**
+	* clone any previous aw2 variable in case of overwrite
+	*
+	* @property _aw2
+	* @type {Any}
+	**&#x2F;
+	var _aw2 = window.aw2;
+
+	&#x2F;**
+	* initialize internal library
+	*
+	* @private
+	* @property aw2
+	* @type {Object}
+	**&#x2F;
+	var aw2 = function(selector) {
+		return new aw2.fn.init(selector);
+	};
+
+	&#x2F;**
+	* initialize the library provisions when called as a function
+	*
+	* @private
+	* @property fn
+	* @type {Object}
+	**&#x2F;
+	aw2.fn = aw2.prototype = {
+		aw2: version,
+		constructor: aw2,
+		selector: &quot;&quot;,
+		length: 0,
+		init: function(_selector) {
+			if(!_selector) {
+				return this;
+			}
+
+			if(typeof(_selector) === &quot;string&quot;) {
+				var match;
+
+				match = document.querySelectorAll(_selector);
+
+				for(var item in match) {
+					this[item] = match[item];
+				}
+				this.length = match.length;
+			} else if(_selector.nodeType) {
+				this[0] = _selector;
+				this.length = 1;
+			}
+
+			this.selector = _selector;
+			return this;
+		},
+		find: function(_selector) {
+			var buildSelect = ((this.selector.length) &gt; 0 ? this.selector + &quot; &quot; : &quot;&quot;) + _selector;
+
+			return new aw2(buildSelect);
+		},
+		toArray: function() {
+			return [].slice.call(this);
+		},
+		push: [].push,
+		sort: [].sort,
+		splice: [].splice,
+		first: function() {
+			return aw2(this[0]);
+		},
+		last: function() {
+			return aw2(this[this.length - 1]);
+		},
+		&#x2F;**
+		* check if a given DOM element has a checked or selected status
+		*
+		* @method isChecked
+		* @param {DOMElement} domObj a DOM element
+		* @return {Boolean} returns true if provided element is checked
+		*
+		* @example
+		*	&lt;input type=&quot;radio&quot; class=&quot;checkMe&quot; &#x2F;&gt;
+		*
+		*	$aw2(&#x27;.checkMe&#x27;).isChecked();
+		**&#x2F;
+		isChecked: function() {
+			var elems = this.toArray();
+
+			for(var el in elems) {
+				try {
+					if(!(elems[el] &amp;&amp; elems[el].checked)) {
+						return false;
+					}
+				} catch(e) {}
+			}
+
+			return true;
+		}
+	};
+
+	aw2.fn.init.prototype = aw2.fn;
+
+	&#x2F;**
+	* enable extension of the library from additional sources
+	*
+	* @method extend
+	* @param {Object} arg* multiple objects to extend core library functionality
+	**&#x2F;
+	aw2.extend = aw2.fn.extend = function() {
+		var target = arguments[0] || {};
+		var copy, name, options;
+		var keyMax = arguments.length;
+		var key = 1;
+
+		if(key === keyMax) {
+			target = this;
+			--key;
+		}
+
+		for(; key &lt; keyMax; key++) {
+			if((options = arguments[key]) !== null) {
+				for(name in options) {
+					copy = options[name];
+
+					if(target === copy) {
+						continue;
+					}
+
+					target[name] = copy;
+				}
+			}
+		}
+
+		return target;
+	};
+
+	&#x2F;**
+	* initialize the library provisions when called as an object
+	**&#x2F;
+	aw2.extend({
+		&#x2F;**
+		* check the type of a given object
+		*
+		* @method type
+		* @param {Any} obj an object from which to determine the type
+		* @return {String} the type of the object passed in
+		**&#x2F;
+		type: function(obj) {
+			classTypeMap = {};
+			for(var name in (&quot;Boolean Number String Function Array Date RegExp Object Error&quot;.split(&quot; &quot;))) {
+				classTypeMap[&quot;[object &quot; + name + &quot;]&quot;] = name.toLowerCase();
+			}
+
+			if(obj === null) {
+				return String(obj);
+			}
+			return (typeof obj === &quot;object&quot; || typeof obj === &quot;function&quot;) ? (classTypeMap[classTypeMap.toString.call(obj)] || &quot;object&quot;) : typeof obj;
+		},
+
+		&#x2F;**
+		* check if array
+		*
+		* @method isArray
+		* @param {Array} array the array to check
+		* @return {Boolean} true or false
+		*
+		* @example
+		*	$aw2.isArray([1,2,3]);
+		*
+		*
+		*	$aw2.isArray(&#x27;string&#x27;);
+		*
+		**&#x2F;
+		isArray: function(array) {
+			return Array.isArray(array);
+		},
+
+		&#x2F;**
+		* test if an element exists in an array starting at the specific index
+		*
+		* @method arrayContains
+		* @param {Array} arr the array to check
+		* @param {Any} el the element to look for
+		* @param {Number} [start=0] the starting index
+		* @return {Number} the index of the found element or -1 if not found
+		*
+		* @example
+		* 	$aw2.arrayContains([1,2,3,4,5,6], 1, 0)
+		*
+		*	var x = [&#x27;Andy&#x27;,&#x27;Alan&#x27;,&#x27;Matthew&#x27;,&#x27;Simon&#x27;];
+		*	$aw2.arrayContains(x, &#x27;Matthew&#x27;);
+		*
+		**&#x2F;
+		arrayContains: function(arr, el, start) {
+			if(arr) {
+				return arr.indexOf(el);
+			}
+		},
+
+		&#x2F;**
+		* convert an array to a string list using a given separation character
+		*
+		* @method arrayToList
+		* @param {Array} array the array to convert to a list
+		* @param {String} separator=&quot;,&quot; the character to use for separating the list
+		* @return {undefined}
+		*
+		* @example
+		*	$aw2.arrayToList([&#x27;Matthew&#x27;,&#x27;Jim&#x27;,&#x27;Sandy&#x27;]);
+		*
+		**&#x2F;
+		arrayToList: function(array, separator) {
+			if(typeof(separator) !== &quot;string&quot;) {
+				separator = &quot;,&quot;;
+			}
+
+			return [].join.apply(array, [separator]);
+		},
+
+		&#x2F;**
+		* convert a string list to an array using a given separation character
+		*
+		* @method listToArray
+		* @param {String} list a string list to convert
+		* @param {String} separator=&quot;,&quot; the character to use for separating the list
+		* @return {undefined}
+		*
+		* @example
+		*	$aw2.listToArray(&#x27;Matthew,Jim,Sandy&#x27;);
+		*
+		**&#x2F;
+		listToArray: function(list, separator) {
+			if(typeof(separator) != &quot;string&quot;) {
+				separator = &quot;,&quot;;
+			}
+
+			return &quot;&quot;.split.apply(list, [separator]);
+		},
+
+		&#x2F;**
+		* Return the first item in an array
+		*
+		* @method arrayFirst
+		* @param {Array} array the array you wish to return the first item from
+		* @return {Any} the first item of the array
+		*
+		* @example
+		*	$aw2.arrayFirst([&#x27;Matthew&#x27;,&#x27;Jim&#x27;,&#x27;Sandy&#x27;]);
+		*
+		**&#x2F;
+		arrayFirst: function(array) {
+
+			return array[0] || aw2.isArray(array);
+		},
+
+		&#x2F;**
+		* Return the last item in an array
+		*
+		* @method arrayLast
+		* @param {Array} array the array you wish to return the first item from
+		* @return {Any} the last item of the array
+		*
+		* @example
+		*	$aw2.arrayLast([&#x27;Matthew&#x27;,&#x27;Jim&#x27;,&#x27;Sandy&#x27;]);
+		*
+		**&#x2F;
+		arrayLast: function(array) {
+			if(!aw2.isArray(array)) {
+				return false;
+			}
+
+			return array.splice(array.length-1, 1);
+		},
+
+		&#x2F;**
+		* test if an element exists in a structure
+		*
+		* @method structKeyExists
+		* @param {Object} obj the structure object to check
+		* @param {String} key the key to find
+		* @return {Boolean} true if the object contains the key
+		*
+		* @example
+		*
+		*	var s = { name : &quot;Matthew&quot; }
+		*
+		*	$aw2.structKeyExists(s, &#x27;name&#x27;) &#x2F;&#x2F; Returns true
+		*
+		*	$aw2.structKeyExists(s, &#x27;jobTitle&#x27;) &#x2F;&#x2F; Returns false
+		*
+		**&#x2F;
+		structKeyExists: function(obj, key) {
+			return (typeof(obj[key]) !== &quot;undefined&quot;);
+		},
+
+		&#x2F;**
+		* remove a key from a structure
+		*
+		* @method structDelete
+		* @param {Object} obj the structure object
+		* @param {String} key the key to be removed
+		* @return {undefined}
+		*
+		* @example
+		*
+		*	var s = { name : &quot;Matthew&quot;, jobTitle : &quot;Developer&quot; }
+		*
+		*	$aw2.structDelete(s, &#x27;jobTitle&#x27;)
+		*
+		**&#x2F;
+		structDelete: function(obj, key) {
+			delete obj[key];
+		}
+	});
+
+	&#x2F;**
+	* expose library to window
+	*
+	* @property window.$aw2
+	* @type {Object}
+	**&#x2F;
+	window.aw2 = window.$aw2 = aw2;
+})(window);
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+
+<!-- $aw2 Custom -->
+<script src="..&#x2F;assets/js/jquery-1.9.1.min.js"></script>
+<script src="..&#x2F;assets/js/aw2-1.0.min.js"></script>
+<script src="..&#x2F;assets/js/aw2-yui.js"></script>
+</body>
+</html>
