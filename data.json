@@ -2,8 +2,8 @@
     "project": {
         "name": "AW2.0 JS Library",
         "description": "A core JavaScript library to ensure best practices are being used by all developers",
-        "version": "1.0",
-        "url": "https://github.com/matthewroach/fluabs",
+        "version": "1.0.0",
+        "url": "https://github.com/aw20/coreJS",
         "logo": "http://www.aw20.co.uk/a/img/logo.png"
     },
     "files": {
