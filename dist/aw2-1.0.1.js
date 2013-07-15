@@ -444,7 +444,6 @@
 				url: url,
 				data: data || {},
 				type: "post",
-				crossDomain: true,
 				cache: false,
 				async: true,
 				dataType: type || "json",
