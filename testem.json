@@ -1,3 +1,8 @@
 {
-	"test_page" : "tests/SpecRunner.html"
+	"test_page" : "tests/SpecRunner.html",
+	"launch_in_dev": [
+    "Chrome",
+    "Firefox",
+    "IE"
+  ]
 }
