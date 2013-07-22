@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 1.0.0</em>
+            <em>API Docs for: 1.0.2</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -116,7 +116,7 @@
 	* @property version
 	* @type {String}
 	**&#x2F;
-	var version = &quot;1.0&quot;;
+	var version = &quot;1.0.2&quot;;
 
 	&#x2F;**
 	* internal document tracker
@@ -151,9 +151,20 @@
 	* @property aw2
 	* @type {Object}
 	**&#x2F;
-	var aw2 = function(selector) {
-		return new aw2.fn.init(selector);
+	var aw2 = function( selector ) {
+		return new aw2.fn.init( selector );
 	};
+
+
+	&#x2F;**
+	* Set up the the classTypeMap used within the .type() method
+	**&#x2F;
+	var classTypeMap = {}
+		, types = &quot;Boolean Number String Function Array Date RegExp Object Error&quot;.split(&quot; &quot;);
+
+	for ( name in types ) {
+		classTypeMap[ &quot;[object &quot; + types[ name ] + &quot;]&quot; ] = types[ name ].toLowerCase();
+	}
 
 	&#x2F;**
 	* initialize the library provisions when called as a function
@@ -167,21 +178,21 @@
 		constructor: aw2,
 		selector: &quot;&quot;,
 		length: 0,
-		init: function(_selector) {
-			if(!_selector) {
+		init: function( _selector ) {
+			if ( !_selector ) {
 				return this;
 			}
 
-			if(typeof(_selector) === &quot;string&quot;) {
+			if ( typeof(_selector) === &quot;string&quot; ) {
 				var match;
 
-				match = document.querySelectorAll(_selector);
+				match = document.querySelectorAll( _selector );
 
-				for(var item in match) {
-					this[item] = match[item];
+				for ( var item in match ) {
+					this[ item ] = match[ item ];
 				}
 				this.length = match.length;
-			} else if(_selector.nodeType) {
+			} else if ( _selector.nodeType ) {
 				this[0] = _selector;
 				this.length = 1;
 			}
@@ -189,8 +200,8 @@
 			this.selector = _selector;
 			return this;
 		},
-		find: function(_selector) {
-			var buildSelect = ((this.selector.length) &gt; 0 ? this.selector + &quot; &quot; : &quot;&quot;) + _selector;
+		find: function( _selector ) {
+			var buildSelect = ( (this.selector.length) &gt; 0 ? this.selector + &quot; &quot; : &quot;&quot; ) + _selector;
 
 			return new aw2(buildSelect);
 		},
@@ -201,10 +212,10 @@
 		sort: [].sort,
 		splice: [].splice,
 		first: function() {
-			return aw2(this[0]);
+			return aw2( this[0] );
 		},
 		last: function() {
-			return aw2(this[this.length - 1]);
+			return aw2( this[ this.length - 1 ] );
 		},
 		&#x2F;**
 		* check if a given DOM element has a checked or selected status
@@ -221,9 +232,9 @@
 		isChecked: function() {
 			var elems = this.toArray();
 
-			for(var el in elems) {
+			for ( var el in elems ) {
 				try {
-					if(!(elems[el] &amp;&amp; elems[el].checked)) {
+					if ( !(elems[ el ] &amp;&amp; elems[ el ].checked) ) {
 						return false;
 					}
 				} catch(e) {}
@@ -247,21 +258,21 @@
 		var keyMax = arguments.length;
 		var key = 1;
 
-		if(key === keyMax) {
+		if ( key === keyMax ) {
 			target = this;
 			--key;
 		}
 
-		for(; key &lt; keyMax; key++) {
-			if((options = arguments[key]) !== null) {
-				for(name in options) {
-					copy = options[name];
+		for ( ; key &lt; keyMax; key++ ) {
+			if ( (options = arguments[ key ]) !== null ) {
+				for ( name in options ) {
+					copy = options[ name ];
 
-					if(target === copy) {
+					if ( target === copy ) {
 						continue;
 					}
 
-					target[name] = copy;
+					target[ name ] = copy;
 				}
 			}
 		}
@@ -280,16 +291,13 @@
 		* @param {Any} obj an object from which to determine the type
 		* @return {String} the type of the object passed in
 		**&#x2F;
-		type: function(obj) {
-			classTypeMap = {};
-			for(var name in (&quot;Boolean Number String Function Array Date RegExp Object Error&quot;.split(&quot; &quot;))) {
-				classTypeMap[&quot;[object &quot; + name + &quot;]&quot;] = name.toLowerCase();
+		type: function( obj ) {
+			if ( obj === null ) {
+				return String( obj );
 			}
-
-			if(obj === null) {
-				return String(obj);
-			}
-			return (typeof obj === &quot;object&quot; || typeof obj === &quot;function&quot;) ? (classTypeMap[classTypeMap.toString.call(obj)] || &quot;object&quot;) : typeof obj;
+			return typeof obj === &quot;object&quot; || typeof obj === &quot;function&quot; ?
+				classTypeMap[ classTypeMap.toString.call( obj ) ] || &quot;object&quot; :
+				typeof obj;
 		},
 
 		&#x2F;**
@@ -306,8 +314,8 @@
 		*	$aw2.isArray(&#x27;string&#x27;);
 		*
 		**&#x2F;
-		isArray: function(array) {
-			return Array.isArray(array);
+		isArray: function( array ) {
+			return Array.isArray( array );
 		},
 
 		&#x2F;**
@@ -316,19 +324,20 @@
 		* @method arrayContains
 		* @param {Array} arr the array to check
 		* @param {Any} el the element to look for
-		* @param {Number} [start=0] the starting index
 		* @return {Number} the index of the found element or -1 if not found
 		*
 		* @example
-		* 	$aw2.arrayContains([1,2,3,4,5,6], 1, 0)
+		* 	$aw2.arrayContains([1,2,3,4,5,6], 1)
 		*
 		*	var x = [&#x27;Andy&#x27;,&#x27;Alan&#x27;,&#x27;Matthew&#x27;,&#x27;Simon&#x27;];
 		*	$aw2.arrayContains(x, &#x27;Matthew&#x27;);
 		*
 		**&#x2F;
-		arrayContains: function(arr, el, start) {
-			if(arr) {
-				return arr.indexOf(el);
+		arrayContains: function( arr, el ) {
+			if ( this.isArray( arr ) ) {
+				return arr.indexOf( el );
+			} else {
+				return &#x27;Not Array&#x27;;
 			}
 		},
 
@@ -344,12 +353,12 @@
 		*	$aw2.arrayToList([&#x27;Matthew&#x27;,&#x27;Jim&#x27;,&#x27;Sandy&#x27;]);
 		*
 		**&#x2F;
-		arrayToList: function(array, separator) {
-			if(typeof(separator) !== &quot;string&quot;) {
+		arrayToList: function( array, separator ) {
+			if ( typeof(separator) !== &quot;string&quot; ) {
 				separator = &quot;,&quot;;
 			}
 
-			return [].join.apply(array, [separator]);
+			return [].join.apply( array, [ separator ] );
 		},
 
 		&#x2F;**
@@ -364,12 +373,12 @@
 		*	$aw2.listToArray(&#x27;Matthew,Jim,Sandy&#x27;);
 		*
 		**&#x2F;
-		listToArray: function(list, separator) {
-			if(typeof(separator) != &quot;string&quot;) {
+		listToArray: function( list, separator ) {
+			if ( typeof(separator) != &quot;string&quot; ) {
 				separator = &quot;,&quot;;
 			}
 
-			return &quot;&quot;.split.apply(list, [separator]);
+			return &quot;&quot;.split.apply( list, [ separator ] );
 		},
 
 		&#x2F;**
@@ -383,9 +392,8 @@
 		*	$aw2.arrayFirst([&#x27;Matthew&#x27;,&#x27;Jim&#x27;,&#x27;Sandy&#x27;]);
 		*
 		**&#x2F;
-		arrayFirst: function(array) {
-
-			return array[0] || aw2.isArray(array);
+		arrayFirst: function( array ) {
+			return aw2.isArray( array ) ? array[0] : aw2.isArray( array );
 		},
 
 		&#x2F;**
@@ -399,12 +407,12 @@
 		*	$aw2.arrayLast([&#x27;Matthew&#x27;,&#x27;Jim&#x27;,&#x27;Sandy&#x27;]);
 		*
 		**&#x2F;
-		arrayLast: function(array) {
-			if(!aw2.isArray(array)) {
+		arrayLast: function( array ) {
+			if ( !aw2.isArray( array ) ) {
 				return false;
 			}
 
-			return array.splice(array.length-1, 1);
+			return array.splice( array.length-1, 1 )[ 0 ];
 		},
 
 		&#x2F;**
@@ -424,8 +432,8 @@
 		*	$aw2.structKeyExists(s, &#x27;jobTitle&#x27;) &#x2F;&#x2F; Returns false
 		*
 		**&#x2F;
-		structKeyExists: function(obj, key) {
-			return (typeof(obj[key]) !== &quot;undefined&quot;);
+		structKeyExists: function( obj, key ) {
+			return ( typeof( obj[ key ] ) !== &quot;undefined&quot; );
 		},
 
 		&#x2F;**
@@ -443,8 +451,8 @@
 		*	$aw2.structDelete(s, &#x27;jobTitle&#x27;)
 		*
 		**&#x2F;
-		structDelete: function(obj, key) {
-			delete obj[key];
+		structDelete: function( obj, key ) {
+			delete obj[ key ];
 		}
 	});
 
@@ -455,6 +463,7 @@
 	* @type {Object}
 	**&#x2F;
 	window.aw2 = window.$aw2 = aw2;
+
 })(window);
 
     </pre>

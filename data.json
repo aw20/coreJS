@@ -2,7 +2,7 @@
     "project": {
         "name": "AW2.0 JS Library",
         "description": "A core JavaScript library to ensure best practices are being used by all developers",
-        "version": "1.0.0",
+        "version": "1.0.2",
         "url": "https://github.com/aw20/coreJS",
         "logo": "http://www.aw20.co.uk/a/img/logo.png"
     },
@@ -432,7 +432,7 @@
         },
         {
             "file": "src\\aw2-ajax-jquery.js",
-            "line": 99,
+            "line": 98,
             "description": "make an AJAX call to an endpoint returning JSON",
             "itemtype": "method",
             "name": "callJSON",
@@ -474,7 +474,7 @@
         },
         {
             "file": "src\\aw2-ajax-jquery.js",
-            "line": 129,
+            "line": 128,
             "description": "make an AJAX call to an endpoint returning JSONP",
             "itemtype": "method",
             "name": "callJSONP",
@@ -516,7 +516,7 @@
         },
         {
             "file": "src\\aw2-ajax-jquery.js",
-            "line": 159,
+            "line": 158,
             "description": "make an AJAX call to an endpoint returning HTML",
             "itemtype": "method",
             "name": "callHTML",
@@ -691,7 +691,14 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 56,
+            "line": 57,
+            "description": "Set up the the classTypeMap used within the .type() method",
+            "class": "AW2",
+            "module": "aw2"
+        },
+        {
+            "file": "src\\aw2.js",
+            "line": 67,
             "description": "initialize the library provisions when called as a function",
             "access": "private",
             "tagname": "",
@@ -703,7 +710,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 107,
+            "line": 118,
             "description": "check if a given DOM element has a checked or selected status",
             "itemtype": "method",
             "name": "isChecked",
@@ -726,7 +733,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 136,
+            "line": 147,
             "description": "enable extension of the library from additional sources",
             "itemtype": "method",
             "name": "extend",
@@ -743,14 +750,14 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 170,
+            "line": 181,
             "description": "initialize the library provisions when called as an object",
             "class": "AW2",
             "module": "aw2"
         },
         {
             "file": "src\\aw2.js",
-            "line": 174,
+            "line": 185,
             "description": "check the type of a given object",
             "itemtype": "method",
             "name": "type",
@@ -770,7 +777,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 193,
+            "line": 201,
             "description": "check if array",
             "itemtype": "method",
             "name": "isArray",
@@ -793,7 +800,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 211,
+            "line": 219,
             "description": "test if an element exists in an array starting at the specific index",
             "itemtype": "method",
             "name": "arrayContains",
@@ -807,13 +814,6 @@
                     "name": "el",
                     "description": "the element to look for",
                     "type": "Any"
-                },
-                {
-                    "name": "start",
-                    "description": "the starting index",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "0"
                 }
             ],
             "return": {
@@ -821,14 +821,14 @@
                 "type": "Number"
             },
             "example": [
-                "\n\t$aw2.arrayContains([1,2,3,4,5,6], 1, 0)\n\n\tvar x = ['Andy','Alan','Matthew','Simon'];\n\t$aw2.arrayContains(x, 'Matthew');\n"
+                "\n\t$aw2.arrayContains([1,2,3,4,5,6], 1)\n\n\tvar x = ['Andy','Alan','Matthew','Simon'];\n\t$aw2.arrayContains(x, 'Matthew');\n"
             ],
             "class": "AW2",
             "module": "aw2"
         },
         {
             "file": "src\\aw2.js",
-            "line": 233,
+            "line": 242,
             "description": "convert an array to a string list using a given separation character",
             "itemtype": "method",
             "name": "arrayToList",
@@ -856,7 +856,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 253,
+            "line": 262,
             "description": "convert a string list to an array using a given separation character",
             "itemtype": "method",
             "name": "listToArray",
@@ -884,7 +884,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 273,
+            "line": 282,
             "description": "Return the first item in an array",
             "itemtype": "method",
             "name": "arrayFirst",
@@ -907,7 +907,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 289,
+            "line": 297,
             "description": "Return the last item in an array",
             "itemtype": "method",
             "name": "arrayLast",
@@ -930,7 +930,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 308,
+            "line": 316,
             "description": "test if an element exists in a structure",
             "itemtype": "method",
             "name": "structKeyExists",
@@ -958,7 +958,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 329,
+            "line": 337,
             "description": "remove a key from a structure",
             "itemtype": "method",
             "name": "structDelete",
@@ -986,7 +986,7 @@
         },
         {
             "file": "src\\aw2.js",
-            "line": 349,
+            "line": 357,
             "description": "expose library to window",
             "itemtype": "property",
             "name": "window.$aw2",
@@ -997,8 +997,12 @@
     ],
     "warnings": [
         {
+            "message": "Missing item type\nSet up the the classTypeMap used within the .type() method",
+            "line": " src\\aw2.js:57"
+        },
+        {
             "message": "Missing item type\ninitialize the library provisions when called as an object",
-            "line": " src\\aw2.js:170"
+            "line": " src\\aw2.js:181"
         }
     ]
 }
